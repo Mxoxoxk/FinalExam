@@ -1,22 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
-import {Navbar, NavbarBrand} from 'reactsrep';
-import { Component } from 'react';
+import React, { Component } from 'react';
+import { Navbar, NavbarBrand } from 'reactstrap';
+import { PHOTOS } from './shared/photos';
+import Home from './component/HomeComponent';
+import Gallery from './component/PhotoGalleryComponent';
+import AboutMe from './component/AboutMeComponent';
 
-class App extends Component{
-  render (){
-    return(
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      photos: PHOTOS
+    };
+  }
+
+  render() {
+    return (
       <div className="App">
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Parisara Khongprasert</NavbarBrand>
-          </div>
-        </Navbar>
+        <Home/>
+        <AboutMe/>
+        <Gallery/>
       </div>
     );
   }
-
 }
-
-
 export default App;
